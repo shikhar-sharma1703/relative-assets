@@ -39,8 +39,21 @@ code {
   }
   .borderDetailsContainer{
     box-shadow: rgb(236 240 255 / 7%) 0px -1px 1px 1px;
+  }
 
+  .bgCardTop{
+    background: linear-gradient(180deg, #1c2035, #1b1f34);
+  }
 
+  .bgCardBottom{
+    background: linear-gradient(to bottom, #1b1f33, #1a1d32, #191c30, #181b30);
+  }
+
+  .notch-circle{
+    background-color: #14172B;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 

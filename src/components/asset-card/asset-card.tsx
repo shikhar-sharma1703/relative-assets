@@ -1,20 +1,28 @@
 import { ICON_PATH, CLASS_BG_GRADIENT } from "../../constants/icon-constants";
+import { TEMP_COST } from "../../constants/data-constants"
+import { useQuery } from "react-query";
 
 interface AssetCardProps {
     tokenName: string;
     totalPrice: string;
-    pricePerToken: string;
-    incDec: number;
     popularPairs: string[];
 }
 
 export default function AssetCard({
     tokenName,
     totalPrice,
-    pricePerToken,
-    incDec,
     popularPairs,
 }: AssetCardProps) {
+
+    // Adding dependent query for getting cost and incDec percentage
+
+    // const { status, data: slugDetails, error } = useQuery('assetDetails', async () => {
+    //     const res = await fetch('https://trending-assets-api.onrender.com/trendingAssets/assetName')
+    //     return res.json()
+    // }, {
+    //     enabled: !!tokenName,
+    // })
+
     return (
         <>
             <div className={"w-[290px] flex flex-col items-center"}>
@@ -40,10 +48,16 @@ export default function AssetCard({
                         <div className="font-tomorrow text-[#737BAE] not-italic font-semibold text-base leading-8 mb-3">{tokenName}</div>
 
                         <div className="bg-[#14172B] rounded-[17px] w-full h-10 flex items-center justify-center font-tomorrow font-semibold pl-2 pr-3 borderDetailsContainer">
-                            <div>
-                                <span className="text-secondaryWhite not-italic leading-[31px] text-base">{pricePerToken}</span>
-                                <span className="not-italic leading-[31px] text-xs ml-3 absolute"><span className={incDec > 0 ? "text-[#00FFA3]" : "text-[#FF4D4D]"}>{incDec > 0 ? "+" : ""}{incDec}%</span></span>
-                            </div>
+                            {TEMP_COST[tokenName] && (
+                                <div>
+
+                                    <span className="text-secondaryWhite not-italic leading-[31px] text-base">{TEMP_COST[tokenName] && TEMP_COST[tokenName][0]}</span>
+                                    <span className="not-italic leading-[31px] text-xs ml-3 absolute"><span className={TEMP_COST[tokenName][1] > 0 ? "text-[#00FFA3]" : "text-[#FF4D4D]"}>{TEMP_COST[tokenName][0] > 0 ? "+" : ""}{TEMP_COST[tokenName][0]}%</span></span>
+
+
+                                </div>
+                            )
+                            }
                         </div>
 
                         <div className="font-tomorrow text-[#5A5F7D] not-italic font-semibold text-base leading-8 mb-2">Price</div>

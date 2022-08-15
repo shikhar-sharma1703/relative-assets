@@ -1,5 +1,5 @@
 export const ICON_PATH: { [key: string]: string } = {
-    "Bitcoin (BTC)": "/BitcoinSV(BSV).svg",
+    "bitcoin": "/BitcoinSV(BSV).svg",
     "Solana (SOL)": "/Solana(SOL).svg",
     "Ethereum (ETH)": "/Ethereum(ETH).svg",
     "Binance Coin (BNB)": "/BinanceCoin(BNB).svg",
@@ -7,7 +7,7 @@ export const ICON_PATH: { [key: string]: string } = {
 }
 
 export const CLASS_BG_GRADIENT: { [key: string]: string } = {
-    "Bitcoin (BTC)": "bgBitcoin",
+    "bitcoin": "bgBitcoin",
     "Solana (SOL)": "bgSolana",
     "Ethereum (ETH)": "bgEthereum",
     "Binance Coin (BNB)": "bgBinance",
